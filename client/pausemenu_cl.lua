@@ -7,15 +7,28 @@ Citizen.CreateThread(function()
 	while true do
 	    Wait(1)
 		SetPauseMenuActive(false)
-	    if (IsControlJustPressed(0, 200)) then
+	    if (IsControlJustPressed(0, 199)) then
             TransitionToBlurred(1000)
             SetNuiFocus(true, true)
             SendNUIMessage({
             open = true
             })
-		end
-	end
+        elseif 
+
+        IsControlJustPressed(0, 200) then
+            SendNUIMessage({
+                open = false
+            })
+            ActivateFrontendMenu(GetHashKey('FE_MENU_VERSION_MP_PAUSE'), 0, -1)
+            Wait(100)
+            PauseMenuceptionGoDeeper(149)
+        end
+    end
 end)
+-- 		end
+-- 	end
+-- end)
+
 -- Function to close menu
 function ClosePause()
 	TransitionFromBlurred(1000)
